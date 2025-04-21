@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>alesskwrv</title>
+  <style>
+    :root {
+      --bg-color: #111;
+      --text-color: #ddd;
+      --header-bg: #222;
+      --card-bg: #1a1a1a;
+      --button-bg: #444;
+      --button-hover: #666;
+      --highlight: #888;
+    }
+
+    body.light {
+      --bg-color: #f4f4f4;
+      --text-color: #333;
+      --header-bg: #e0e0e0;
+      --card-bg: #fff;
+      --button-bg: #ccc;
+      --button-hover: #bbb;
+      --highlight: #555;
+    }
+
+    * {
+      box-sizing: border-box;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: var(--header-bg);
+      color: var(--text-color);
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: var(--card-bg);
+      padding: 10px 0;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--highlight);
+    }
+
+    .toggle-mode {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px;
+      gap: 20px;
+    }
+
+    .content {
+      flex: 3;
+      min-width: 300px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .sidebar {
+      flex: 1;
+      min-width: 250px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    .post {
+      margin-bottom: 30px;
+    }
+
+    .post h2 {
+      color: var(--highlight);
+      margin-bottom: 10px;
+    }
+
+    .post p {
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      background: var(--header-bg);
+      color: var(--text-color);
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: var(--button-bg);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: var(--button-hover);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li::before {
+      content: "\25B6 ";
+      color: var(--highlight);
+    }
+
+    #respuesta {
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-mode" onclick="toggleMode()">Modo Claro/Oscuro</button>
+  <header>
+    <h1 style="text-transform: capitalize; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);">alesskwrv</h1>
+    <p>Prueba de pagina tipo "blog"</p>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    
+    <a href="https://x.com/Alesskwrv" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/alesskwrv/" target="_blank">Instagram</a>
+  </nav>
+
+  <div class="container">
+    <div class="content">
+      <div class="post">
+        <h2>Homlam munde</h2>
+        <p>No se que poner aca.</p>
+      </div>
+
+      
+
+      <button onclick="toggleMensaje()">Click aqui si eres chad</button>
+      <p id="respuesta" style="display:none;">Aaaa es demasiado CHAD</p>
+    </div>
+
+    <div class="sidebar">
+      <h3>Sobre mí</h3>
+      <p>Soy <strong>alesskwrv</strong>, juego webadas y intento aprender programacion, este es mi primer intento de pagina xd.</p>
+
+      <h3>Categorías</h3>
+      <ul>
+        <li>Programación</li>
+        <li>Diseño Web</li>
+        <li>Venta de enanos</li>
+        <li>Racismo</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 - alesskwrv
+  </footer>
+
+  <script>
+    let visible = false;
+    function toggleMensaje() {
+      const mensaje = document.getElementById("respuesta");
+      visible = !visible;
+      mensaje.style.display = visible ? "block" : "none";
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("light");
+    }
+  </script>
+</body>
+</html>
